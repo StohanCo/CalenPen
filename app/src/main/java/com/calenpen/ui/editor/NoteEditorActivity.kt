@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -67,6 +68,13 @@ class NoteEditorActivity : AppCompatActivity() {
         setupToolbar()
         setupToolPalette()
         observeViewModel()
+
+        // Handle back navigation using the modern OnBackPressedDispatcher (API 33+ compatible)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                saveAndFinish()
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -84,10 +92,6 @@ class NoteEditorActivity : AppCompatActivity() {
             R.id.action_redo -> { binding.drawingCanvas.redo(); true }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onBackPressed() {
-        saveAndFinish()
     }
 
     // ─── Setup ────────────────────────────────────────────────────────────────

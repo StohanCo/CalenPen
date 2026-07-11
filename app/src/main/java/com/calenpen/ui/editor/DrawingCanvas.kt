@@ -237,7 +237,7 @@ class DrawingCanvas @JvmOverloads constructor(
             val strokeBounds = RectF()
             stroke.path.computeBounds(strokeBounds, true)
             strokeRegion.setPath(stroke.path, Region(strokeBounds.left.toInt(), strokeBounds.top.toInt(), strokeBounds.right.toInt(), strokeBounds.bottom.toInt()))
-            !strokeRegion.quickReject(eraserRegion) && !strokeRegion.op(eraserRegion, Region.Op.INTERSECT).not()
+            !strokeRegion.quickReject(eraserRegion) && strokeRegion.op(eraserRegion, Region.Op.INTERSECT)
         }
     }
 
@@ -386,9 +386,9 @@ class DrawingCanvas @JvmOverloads constructor(
                 strokeJoin = Paint.Join.ROUND
                 color = colour
                 strokeWidth = widthDp * 3f // approximate density
-                val pt = PenType.entries.find { it.name == penType } ?: PenType.PEN
-                if (pt == PenType.HIGHLIGHTER) { alpha = 80 }
-                if (pt == PenType.PENCIL) { alpha = 180 }
+                val resolvedPenType = PenType.values().find { it.name == penType } ?: PenType.PEN
+                if (resolvedPenType == PenType.HIGHLIGHTER) { alpha = 80 }
+                if (resolvedPenType == PenType.PENCIL) { alpha = 180 }
             }
             return StrokeData(
                 path = path,
@@ -396,7 +396,7 @@ class DrawingCanvas @JvmOverloads constructor(
                 points = strokePoints,
                 colour = colour,
                 widthDp = widthDp,
-                penType = PenType.entries.find { it.name == penType } ?: PenType.PEN
+                penType = PenType.values().find { it.name == penType } ?: PenType.PEN
             )
         }
     }

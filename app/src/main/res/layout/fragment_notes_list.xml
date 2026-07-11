@@ -28,6 +28,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:src="@android:drawable/ic_input_add"
-        android:contentDescription="New note" />
+        android:contentDescription="@string/new_note" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

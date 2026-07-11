@@ -8,6 +8,11 @@
     <string name="nav_templates">Templates</string>
     <string name="nav_search">Search</string>
 
+    <!-- Accessibility -->
+    <string name="previous_month">Previous month</string>
+    <string name="next_month">Next month</string>
+    <string name="new_note">New note</string>
+
     <!-- General -->
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>

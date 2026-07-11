@@ -47,7 +47,7 @@
                     android:layout_height="48dp"
                     android:src="@android:drawable/ic_media_previous"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Previous month" />
+                    android:contentDescription="@string/previous_month" />
 
                 <TextView
                     android:id="@+id/tv_month_year"
@@ -65,7 +65,7 @@
                     android:layout_height="48dp"
                     android:src="@android:drawable/ic_media_next"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="Next month" />
+                    android:contentDescription="@string/next_month" />
 
                 <Button
                     android:id="@+id/btn_today"
