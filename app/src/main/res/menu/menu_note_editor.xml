@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_save"
+        android:title="@string/save"
+        android:icon="@android:drawable/ic_menu_save"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_undo"
+        android:title="@string/undo"
+        android:icon="@android:drawable/ic_menu_revert"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_redo"
+        android:title="@string/redo"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_recognise"
+        android:title="@string/recognise_handwriting"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_paper_style"
+        android:title="@string/choose_paper_style"
+        app:showAsAction="never" />
+
+</menu>

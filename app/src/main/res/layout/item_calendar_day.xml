@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp">
+
+        <!-- Day number -->
+        <TextView
+            android:id="@+id/tv_day_number"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:textColor="@color/colorOnSurface" />
+
+        <!-- Note dot indicator -->
+        <View
+            android:id="@+id/view_note_dot"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@color/note_dot_color"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_day_number"
+            android:visibility="gone" />
+
+        <!-- Note count badge -->
+        <TextView
+            android:id="@+id/tv_note_count"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_alignEnd="@id/tv_day_number"
+            android:layout_alignTop="@id/tv_day_number"
+            android:gravity="center"
+            android:textSize="8sp"
+            android:textColor="@color/colorOnPrimary"
+            android:background="@color/note_dot_color"
+            android:visibility="gone" />
+
+        <!-- Emoji -->
+        <TextView
+            android:id="@+id/tv_day_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/view_note_dot"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

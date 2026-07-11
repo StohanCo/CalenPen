@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CalenPen</string>
+
+    <!-- Navigation labels -->
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_notes">Notes</string>
+    <string name="nav_templates">Templates</string>
+    <string name="nav_search">Search</string>
+
+    <!-- Accessibility -->
+    <string name="previous_month">Previous month</string>
+    <string name="next_month">Next month</string>
+    <string name="new_note">New note</string>
+
+    <!-- General -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="ok">OK</string>
+    <string name="no_date">No date</string>
+    <string name="no_date_selected">Tap a day to view notes</string>
+    <string name="untitled_note">Untitled</string>
+
+    <!-- Calendar screen -->
+    <string name="today">Today</string>
+    <string name="new_note_for_date">New note for this day</string>
+    <string name="no_notes_for_day">No notes for this day.\nTap + to add one.</string>
+
+    <!-- Note editor -->
+    <string name="note_title_hint">Title…</string>
+    <string name="recognise_handwriting">Recognise handwriting</string>
+    <string name="recognising_handwriting">Recognising handwriting…</string>
+    <string name="recognised_text_label">Recognised text</string>
+    <string name="choose_paper_style">Choose paper style</string>
+    <string name="paper_blank">Blank</string>
+    <string name="paper_lined">Lined</string>
+    <string name="paper_dotted">Dotted</string>
+    <string name="paper_grid">Grid</string>
+    <string name="paper_cornell">Cornell</string>
+    <string name="pen">Pen</string>
+    <string name="pencil">Pencil</string>
+    <string name="highlighter">Highlighter</string>
+    <string name="eraser">Eraser</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+
+    <!-- Search screen -->
+    <string name="search_hint">Search notes by title, text, or date…</string>
+    <string name="search_prompt">Type to search your notes</string>
+    <string name="no_results">No notes found</string>
+
+    <!-- Templates screen -->
+    <string name="templates_title">Templates</string>
+    <string name="no_templates">No templates available</string>
+
+    <!-- Notes list screen -->
+    <string name="notes_title">All Notes</string>
+    <string name="no_notes">No notes yet.\nTap + to create one.</string>
+
+    <!-- PDF import -->
+    <string name="import_pdf">Import PDF</string>
+    <string name="pick_pdf">Pick a PDF file</string>
+    <string name="pdf_load_failed">Could not open PDF</string>
+    <string name="pdf_imported">PDF pages imported</string>
+    <string name="pdf_page_count">%d pages found</string>
+    <string name="page_number">Page %d</string>
+    <string name="import_selected">Import selected</string>
+    <string name="import_all">Import all pages</string>
+    <string name="select_page">Select page</string>
+</resources>

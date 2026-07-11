@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorSurface"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Date assignment chip -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:background="@color/colorSurface"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/date_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_date"
+                app:chipIcon="@android:drawable/ic_menu_today"
+                app:chipIconVisible="true" />
+
+            <!-- Note title -->
+            <EditText
+                android:id="@+id/edit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:hint="@string/note_title_hint"
+                android:background="@null"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionDone" />
+
+        </LinearLayout>
+
+        <!-- Tool palette -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:background="@color/colorSurface">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="56dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <!-- Pen type buttons -->
+                <ImageButton
+                    android:id="@+id/btn_pen"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/pen" />
+
+                <ImageButton
+                    android:id="@+id/btn_pencil"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/pencil" />
+
+                <ImageButton
+                    android:id="@+id/btn_highlighter"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/highlighter" />
+
+                <ImageButton
+                    android:id="@+id/btn_eraser"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/eraser" />
+
+                <View android:layout_width="1dp" android:layout_height="32dp"
+                    android:background="@color/eink_border" android:layout_marginHorizontal="4dp" />
+
+                <!-- Colour swatches -->
+                <ImageButton android:id="@+id/colour_black"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:background="@color/pen_black" android:layout_margin="4dp" />
+                <ImageButton android:id="@+id/colour_blue"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:background="@color/pen_blue" android:layout_margin="4dp" />
+                <ImageButton android:id="@+id/colour_red"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:background="@color/pen_red" android:layout_margin="4dp" />
+                <ImageButton android:id="@+id/colour_green"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:background="@color/pen_green" android:layout_margin="4dp" />
+                <ImageButton android:id="@+id/colour_orange"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:background="@color/pen_orange" android:layout_margin="4dp" />
+                <ImageButton android:id="@+id/colour_purple"
+                    android:layout_width="28dp" android:layout_height="28dp"
+                    android:background="@color/pen_purple" android:layout_margin="4dp" />
+
+                <View android:layout_width="1dp" android:layout_height="32dp"
+                    android:background="@color/eink_border" android:layout_marginHorizontal="4dp" />
+
+                <!-- Stroke width slider -->
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/stroke_width_slider"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="1"
+                    android:valueTo="20"
+                    android:value="3"
+                    android:stepSize="1" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Drawing canvas (infinite-scroll wrapper) -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <com.calenpen.ui.editor.DrawingCanvas
+                android:id="@+id/drawing_canvas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="1200dp" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <!-- Recognised text card (shown after OCR) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/recognised_text_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_margin="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recognised_text_label"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_recognised_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Saving indicator -->
+        <ProgressBar
+            android:id="@+id/saving_indicator"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand colours -->
+    <color name="calenpen_dark">#1A1A2E</color>
+    <color name="calenpen_primary">#16213E</color>
+    <color name="calenpen_accent">#0F3460</color>
+    <color name="calenpen_highlight">#E94560</color>
+
+    <!-- Light theme -->
+    <color name="colorPrimary">#1565C0</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">#E53935</color>
+    <color name="colorPrimaryVariant">#0D47A1</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#546E7A</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#212121</color>
+    <color name="colorBackground">#F5F5F5</color>
+    <color name="colorOnBackground">#212121</color>
+    <color name="colorError">#B00020</color>
+    <color name="colorOnError">#FFFFFF</color>
+
+    <!-- Calendar cell colours -->
+    <color name="today_background">#1565C0</color>
+    <color name="today_text">#FFFFFF</color>
+    <color name="selected_day_background">#E3F2FD</color>
+    <color name="highlighted_day_background">#FFF9C4</color>
+    <color name="note_dot_color">#E53935</color>
+
+    <!-- Drawing tools -->
+    <color name="pen_black">#1A1A1A</color>
+    <color name="pen_blue">#1565C0</color>
+    <color name="pen_red">#B71C1C</color>
+    <color name="pen_green">#2E7D32</color>
+    <color name="pen_orange">#E65100</color>
+    <color name="pen_purple">#6A1B9A</color>
+    <color name="paper_white">#FFFFFF</color>
+    <color name="guide_line_color">#E0E0E0</color>
+
+    <!-- E-ink optimised (high contrast) -->
+    <color name="eink_background">#FFFFFF</color>
+    <color name="eink_foreground">#000000</color>
+    <color name="eink_border">#CCCCCC</color>
+</resources>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorSurface" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Month navigation header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:gravity="center_vertical"
+                android:background="@color/colorSurface">
+
+                <ImageButton
+                    android:id="@+id/btn_prev_month"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@android:drawable/ic_media_previous"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/previous_month" />
+
+                <TextView
+                    android:id="@+id/tv_month_year"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorOnSurface" />
+
+                <ImageButton
+                    android:id="@+id/btn_next_month"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@android:drawable/ic_media_next"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/next_month" />
+
+                <Button
+                    android:id="@+id/btn_today"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/today"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <!-- Day-of-week header row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/colorSurface">
+
+                <TextView android:layout_width="0dp" android:layout_height="32dp"
+                    android:layout_weight="1" android:gravity="center" android:text="Su"
+                    android:textSize="11sp" android:textColor="@color/colorSecondary" />
+                <TextView android:layout_width="0dp" android:layout_height="32dp"
+                    android:layout_weight="1" android:gravity="center" android:text="Mo"
+                    android:textSize="11sp" android:textColor="@color/colorSecondary" />
+                <TextView android:layout_width="0dp" android:layout_height="32dp"
+                    android:layout_weight="1" android:gravity="center" android:text="Tu"
+                    android:textSize="11sp" android:textColor="@color/colorSecondary" />
+                <TextView android:layout_width="0dp" android:layout_height="32dp"
+                    android:layout_weight="1" android:gravity="center" android:text="We"
+                    android:textSize="11sp" android:textColor="@color/colorSecondary" />
+                <TextView android:layout_width="0dp" android:layout_height="32dp"
+                    android:layout_weight="1" android:gravity="center" android:text="Th"
+                    android:textSize="11sp" android:textColor="@color/colorSecondary" />
+                <TextView android:layout_width="0dp" android:layout_height="32dp"
+                    android:layout_weight="1" android:gravity="center" android:text="Fr"
+                    android:textSize="11sp" android:textColor="@color/colorSecondary" />
+                <TextView android:layout_width="0dp" android:layout_height="32dp"
+                    android:layout_weight="1" android:gravity="center" android:text="Sa"
+                    android:textSize="11sp" android:textColor="@color/colorSecondary" />
+            </LinearLayout>
+
+            <!-- Calendar grid -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorSurface"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/eink_border"
+                android:layout_marginTop="8dp" />
+
+            <!-- Selected date label -->
+            <TextView
+                android:id="@+id/tv_selected_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorOnSurface"
+                android:text="@string/no_date_selected" />
+
+            <!-- Notes for selected day -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_day_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Empty state -->
+            <TextView
+                android:id="@+id/tv_empty_day_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/no_notes_for_day"
+                android:gravity="center"
+                android:textColor="@color/colorSecondary"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- FAB for new note -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_new_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_input_add"
+        android:contentDescription="@string/new_note_for_date" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

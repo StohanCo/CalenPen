@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.CalenPen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorError">@color/colorError</item>
+        <item name="android:windowBackground">@color/colorBackground</item>
+    </style>
+
+    <!-- Note editor – full-screen, no action bar decoration -->
+    <style name="Theme.CalenPen.Editor" parent="Theme.CalenPen">
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
+    <!-- High-contrast theme optimised for NXTPaper e-ink display -->
+    <style name="Theme.CalenPen.EInk" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/eink_foreground</item>
+        <item name="colorPrimaryVariant">@color/eink_foreground</item>
+        <item name="colorOnPrimary">@color/eink_background</item>
+        <item name="colorSecondary">@color/eink_foreground</item>
+        <item name="colorOnSecondary">@color/eink_background</item>
+        <item name="colorSurface">@color/eink_background</item>
+        <item name="colorOnSurface">@color/eink_foreground</item>
+        <item name="android:colorBackground">@color/eink_background</item>
+        <item name="android:windowBackground">@color/eink_background</item>
+    </style>
+</resources>
