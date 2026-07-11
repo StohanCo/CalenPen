@@ -161,7 +161,9 @@ class NoteEditorActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.note.observe(this) { note ->
-            binding.editTitle.setText(note.title)
+            if (!binding.editTitle.isFocused && binding.editTitle.text.toString() != note.title) {
+                binding.editTitle.setText(note.title)
+            }
             binding.drawingCanvas.fromJson(note.strokesJson)
             currentPaperStyle = note.paperStyle
             binding.drawingCanvas.paperBackground = when (note.paperStyle) {
