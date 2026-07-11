@@ -63,6 +63,15 @@ app/
 
 **Requirements:** Android SDK 26+ (API 26) · Target SDK 34 · Kotlin 1.9
 
+### Pre-built APKs
+
+Every push to `main` and every pull request triggers the **Build APK** GitHub Actions
+workflow (`.github/workflows/build-apk.yml`), which compiles debug and release APKs and
+uploads them as downloadable workflow artifacts (see the *Actions* tab). Pushing a tag
+matching `v*` additionally attaches the APKs to a GitHub Release. Note that the release
+APK is unsigned and must be signed before it can be installed; the debug APK can be
+installed directly.
+
 ---
 
 ## NXTPaper Setup
