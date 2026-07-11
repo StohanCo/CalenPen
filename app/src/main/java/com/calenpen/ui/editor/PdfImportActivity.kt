@@ -7,12 +7,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.calenpen.CalenPenApplication
 import com.calenpen.R
+import com.calenpen.data.database.entities.Note
+import com.calenpen.data.database.entities.PaperStyle
 import com.calenpen.databinding.ActivityPdfImportBinding
 import com.calenpen.utils.PdfImporter
 import kotlinx.coroutines.Dispatchers
@@ -28,12 +29,7 @@ import kotlinx.coroutines.withContext
 class PdfImportActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPdfImportBinding
-    private val viewModel: NoteEditorViewModel by viewModels {
-        NoteEditorViewModel.Factory(
-            application,
-            (application as CalenPenApplication).repository
-        )
-    }
+    private val repository by lazy { (application as CalenPenApplication).repository }
 
     private lateinit var pdfImporter: PdfImporter
     private var selectedPdfUri: Uri? = null
@@ -106,17 +102,19 @@ class PdfImportActivity : AppCompatActivity() {
         val uri = selectedPdfUri ?: return
         val dateKey = intent.getStringExtra(NoteEditorActivity.EXTRA_DATE_KEY)
         lifecycleScope.launch {
-            selectedPages.sorted().forEach { page ->
-                viewModel.newNote(dateKey = dateKey)
-                viewModel.saveNote(
-                    title = "PDF Import – Page ${page + 1}",
-                    strokesJson = null,
-                    typedText = "",
-                    dateKey = dateKey,
-                    paperStyle = com.calenpen.data.database.entities.PaperStyle.BLANK
-                )
-                // Persist the PDF URI and page index in a second pass once the note id is known
-                // (handled by the ViewModel save flow)
+            withContext(Dispatchers.IO) {
+                selectedPages.sorted().forEach { page ->
+                    repository.saveNote(
+                        Note(
+                            title = "PDF Import – Page ${page + 1}",
+                            typedText = "",
+                            dateKey = dateKey,
+                            paperStyle = PaperStyle.BLANK,
+                            pdfUri = uri.toString(),
+                            pdfPage = page
+                        )
+                    )
+                }
             }
             Toast.makeText(this@PdfImportActivity, R.string.pdf_imported, Toast.LENGTH_SHORT).show()
             setResult(Activity.RESULT_OK)
