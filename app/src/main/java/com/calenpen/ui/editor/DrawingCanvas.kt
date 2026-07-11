@@ -222,8 +222,7 @@ class DrawingCanvas @JvmOverloads constructor(
                 penType = penType
             )
             strokes.add(stroke)
-            undoStack.clear()
-        }
+            redoStack.clear()
     }
 
     private fun eraseAtPath(eraserPath: Path) {
