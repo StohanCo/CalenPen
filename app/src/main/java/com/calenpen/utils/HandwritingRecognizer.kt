@@ -34,10 +34,10 @@ class HandwritingRecognizer {
         val modelIdentifier = try {
             DigitalInkRecognitionModelIdentifier.fromLanguageTag(languageTag)
         } catch (e: MlKitException) {
-            cont.resume("")
+            if (cont.isActive) cont.resume("")
             return@suspendCancellableCoroutine
         } ?: run {
-            cont.resume("")
+            if (cont.isActive) cont.resume("")
             return@suspendCancellableCoroutine
         }
 
@@ -58,10 +58,10 @@ class HandwritingRecognizer {
         recogniser.recognize(inkBuilder.build())
             .addOnSuccessListener { result ->
                 val text = result.candidates.firstOrNull()?.text ?: ""
-                cont.resume(text)
+                if (cont.isActive) cont.resume(text)
             }
             .addOnFailureListener { e ->
-                cont.resumeWithException(e)
+                if (cont.isActive) cont.resumeWithException(e)
             }
     }
 
