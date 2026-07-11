@@ -129,15 +129,13 @@ class CalendarAdapter(
                 )
             }
 
-            // Selected day highlight
             itemView.setBackgroundResource(
-                if (cell.isSelected) R.drawable.bg_selected_day else 0
+                when {
+                    cell.isHighlighted -> R.drawable.bg_highlighted_day
+                    cell.isSelected -> R.drawable.bg_selected_day
+                    else -> 0
+                }
             )
-
-            // Colour label / highlight
-            if (cell.isHighlighted) {
-                itemView.setBackgroundResource(R.drawable.bg_highlighted_day)
-            }
 
             // Note dot / count
             dotIndicator.isVisible = cell.hasNotes
