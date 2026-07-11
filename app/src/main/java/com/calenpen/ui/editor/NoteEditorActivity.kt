@@ -59,7 +59,8 @@ class NoteEditorActivity : AppCompatActivity() {
         if (noteId > 0) {
             viewModel.loadNote(noteId)
         } else {
-            val templateType = intent.getStringExtra(EXTRA_TEMPLATE_TYPE) ?: ""
+            val templateType = intent.getStringExtra(EXTRA_TEMPLATE_TYPE)
+                ?: com.calenpen.data.database.entities.TemplateType.BLANK
             val paperStyle = intent.getStringExtra(EXTRA_PAPER_STYLE) ?: PaperStyle.BLANK
             viewModel.newNote(dateKey = selectedDateKey, templateType = templateType, paperStyle = paperStyle)
         }
