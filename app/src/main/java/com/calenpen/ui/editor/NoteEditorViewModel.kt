@@ -65,7 +65,7 @@ class NoteEditorViewModel(
     ) {
         val current = _note.value ?: Note()
         val updated = current.copy(
-            title = title.ifBlank { "Untitled" },
+            title = title.ifBlank { getApplication<Application>().getString(com.calenpen.R.string.untitled_note) },
             strokesJson = strokesJson,
             typedText = typedText,
             dateKey = dateKey,
