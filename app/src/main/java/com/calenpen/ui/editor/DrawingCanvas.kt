@@ -209,6 +209,7 @@ class DrawingCanvas @JvmOverloads constructor(
     private fun commitCurrentStroke() {
         if (penType == PenType.ERASER) {
             eraseAtPath(currentPath)
+            redoStack.clear()
         } else {
             val snapshotPath = Path(currentPath)
             val snapshotPaint = Paint(drawPaint)
